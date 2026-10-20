@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "allocpred"
+version = "0.1.0"
+description = "Next-day direction of 278 systematic allocations (QRT data challenge): reconstructing the shuffled calendar from overlapping return windows, purged chronological CV, shrunk per-allocation momentum loadings and a ridge + LightGBM blend."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Lucas Paulien" }]
+keywords = ["quantitative-finance", "momentum", "cross-validation", "lightgbm", "time-series", "data-challenge"]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.2",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "lightgbm>=4.0",
+]
+
+[project.urls]
+Repository = "https://github.com/lucaspaulien/qrt-allocation-returns"
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+dev = ["pytest>=7.4", "matplotlib>=3.7", "pyflakes>=3.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
